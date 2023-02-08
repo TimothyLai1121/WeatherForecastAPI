@@ -1,7 +1,7 @@
-# WeatherForecastAPI
-Second repo for weatherapi
+![banner](./assets/imgs/Another_Weather_Station.png)
 
-![banner](https://img.shields.io/github/languages/code-size/TimothyLai1121/Daily-Planner-Day.js)
+
+
 
 ## References
 

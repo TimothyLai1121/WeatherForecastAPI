@@ -14,20 +14,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--    
+
     <link rel="stylesheet" href="./assets/css/styles.css">
-    -->
+
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1 class="display-3">Weather Api Station</h1>
+    <!--
+    <div class="jumbotron text-center">
+        <h1 class="display-3">5 DAYS FORECAST</h1>
         <p class="lead">This Weather Station is made wtih Bootstrap and my first time implement API to my projects</p>
         <hr class="my-4">
-        <p>GitHub</p>
+        <p class="current-time">GitHub</p>
     </div>
+    -->
+    
     <div class="container fiveDaysForecast">
         <!-- First Column -->
+        <div class="row ui-bar">
+            <h1 class="current-time">5 DAYS FORECASTING</h1>
+            <!--
+            <ul id="bullets">
+                <li id="bullet1"></li>
+                <li id="bullet2"></li>
+            </ul>
+        -->
+        </div>
         <div class="row futureForcast">
 
             <!-- changing to col instead of col-md-2 fix my problem -->
@@ -37,7 +49,7 @@
                         <h5 class="card-days">Monday</h5>
                         <p class="card-date"></p>
                         <div class="icon">
-                        <img id="weather-icon" src="">
+                            <img id="weather-icon" src="">
                         </div>
                         <p class="card-temps">Temperature: 32°F</p>
                         <!-- reading gitlab, adding two more functions -->
@@ -54,7 +66,7 @@
                         <p class="card-date"></p>
                         <div class="icon">
                             <img id="weather-icon" src="">
-                            </div>
+                        </div>
                         <p class="card-temps">Temperature: 32°F</p>
                         <p class="card-humidity">Humidity</p>
                         <p class="card-windSpeed">Wind Speed: </p>
@@ -69,7 +81,7 @@
                         <p class="card-date"></p>
                         <div class="icon">
                             <img id="weather-icon" src="">
-                            </div>
+                        </div>
                         <p class="card-temps">Temperature: 32°F</p>
                         <p class="card-humidity">Humidity</p>
                         <p class="card-windSpeed">Wind Speed: </p>
@@ -84,7 +96,7 @@
                         <p class="card-date"></p>
                         <div class="icon">
                             <img id="weather-icon" src="">
-                            </div>
+                        </div>
                         <p class="card-temps">Temperature: 32°F</p>
                         <p class="card-humidity">Humidity</p>
                         <p class="card-windSpeed">Wind Speed: </p>
@@ -99,7 +111,7 @@
                         <p class="card-date"></p>
                         <div class="icon">
                             <img id="weather-icon" src="">
-                            </div>
+                        </div>
                         <p class="card-temps">Temperature: 32°F</p>
                         <p class="card-humidity">Humidity</p>
                         <p class="card-windSpeed">Wind Speed: </p>
@@ -107,7 +119,7 @@
                 </div>
             </div>
         </div>
-
+        <hr class="line-break">
         <!-- Second Column -->
 
         <div class="container forecastToday">
@@ -120,32 +132,56 @@
                         <button type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </div>
-                <div class="col-md-8 ">
+                <div class="col-md-6">
                     <div class="cardCurrent">
-                        <div class="card-body">
+                        <div class="card-body-current">
                             <h5 class="cityName">Atlanta</h5>
-                            <div class="icon">
-                                <img id="weather-icon" src="">
-                                </div>
+
+                            <div class="icon-current">
+                                <img id="weather-icon-current" src="">
+                            </div>
                             <!-- adding icons to see if I can change according to weather -->
                             <p class="card-temps-current" id="temperature">Temperature: 20°F</p>
                             <p class="card-description" id="description">Status</p>
                             <!-- Kelvin subtracting 273.15 to calculate Celsius -->
-                            <p class="card-humidity">Humidity</p>
-                            <p class="card-windSpeed">Wind Speed: </p>
-                            
-                            
+                            <p class="card-humidity" id="humidity">Humidity</p>
+                            <p class="card-windSpeed" id="windspeed">Wind Speed: </p>
+
+
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2">
+                    <ul id="history-list" class="savedHistory">
+                        <li></li>
+                    </ul>
+                </div>
+                    
+
             </div>
         </div>
+    </div>
+    </div>
+    </div>
 
 
 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--
+    <footer class="bg-light text-center text-lg-start">
+      
+        <div class="text-center p-3">
+            © 2020 Copyright:
+            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        </div>
+     
+    </footer>
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/scripts/fahrenheit.js"></script>
+    <script src="./assets/scripts/time.js"></script>
 </body>
 
 </html>

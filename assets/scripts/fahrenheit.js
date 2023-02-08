@@ -33,68 +33,90 @@ console.log(cityName); Defined
 const citySearch = document.querySelector("#citySearch");
 const cityName = document.querySelector(".cityName");
 const temperature = document.querySelector("#temperature");
-// Adding weathericon //
 const weatherIcon = document.querySelector("#weather-icon");
+// adding savedHistory
+const savedHistory = document.querySelector(".savedHistory");
 
 const API_KEY = "64af4cf1ecbdda50b562d1d35a8300f7";
 
-async function getWeather(city) {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`);
-    const data = await response.json();
-    return data;
-}
 
+
+async function getWeather(city) {
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`);
+  const data = await response.json();
+  return data;
+}
 
 async function handleSubmit(e) {
-    e.preventDefault();
-    const city = citySearch.value;
-    const weather = await getWeather(city);
-    localStorage.setItem("city", city);
-    // City is good, temperature fail //
-
-    // current weather information
-    const currentWeather = weather.list[0];
-    const temp = (currentWeather.main.temp - 273.15).toFixed(1);
-    const tempInFahrenheit = ((temp * 9 / 5) + 32).toFixed(1);
-     // const temp = (currentWeather.main.temp - 273.15).toFixed(1);
-    // const tempInFahrenheit = ((temp * 9/5) + 32).toFixed(1);
-    // Without tempInFahrenheit, for celsuis //
-    cityName.textContent = weather.city.name;
-    temperature.textContent = `Temperature: ${tempInFahrenheit}°F`;
-    document.querySelector("#description").textContent = currentWeather.weather[0].description;
-    // icons attempt //
-    weatherIcon.src = `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`;
-    // icons only showing current //
-    // reworking on five days forecast to show beside awesome fonts icons //
-    
+  e.preventDefault();
+  const city = citySearch.value;
+  const weather = await getWeather(city);
+  localStorage.setItem("city", city);
 
 
-    // fivedaysforecast
-    const cards = document.querySelectorAll(".card-body");
-    for (let i = 0; i < 5; i++) {
-        const day = weather.list[i * 8]; // 8 interval for each day
-        const date = new Date(day.dt * 1000);
-        const options = { weekday: 'long' };
-        const dayOfWeek = date.toLocaleDateString('en-US', options);
-        const temp = (day.main.temp - 273.15).toFixed(1);
-        const tempInFahrenheit = ((temp * 9 / 5) + 32).toFixed(1);
-        cards[i].querySelector(".card-days").textContent = dayOfWeek;
-        cards[i].querySelector(".card-temps").textContent = `Temperature: ${tempInFahrenheit}°F`;
-        // adding .card-humidity
-        cards[i].querySelector(".card-humidity").textContent = `Humidity: ${day.main.humidity}%`;
-        cards[i].querySelector(".card-windSpeed").textContent = `Wind Speed: ${day.wind.speed}m/s`;
-        cards[i].querySelector("#weather-icon").src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+  const currentWeather = weather.list[0];
+  const temp = (currentWeather.main.temp - 273.15).toFixed(1);
+  const tempInFahrenheit = ((temp * 9 / 5) + 32).toFixed(1);
+  cityName.textContent = weather.city.name;
+  temperature.textContent = `Temperature: ${tempInFahrenheit}°F`;
+  document.querySelector(".card-description").textContent = currentWeather.weather[0].description;
+  weatherIcon.src = `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`;
+  document.querySelector("#humidity").textContent = `Humidity: ${currentWeather.main.humidity}%`;
+  //adding dates //
+  document.querySelector("#windspeed").textContent = `Wind Speed: ${currentWeather.wind.speed} m/s`;
+  document.querySelector(".icon-current img").src = `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`;
+  //  savedHistory div 
+  const storedCity = localStorage.getItem("city");
+  const historyList = document.querySelectorAll("#history-list li");
+  let isDuplicate = false;
+
+  historyList.forEach(function (history) {
+    if (history.textContent === storedCity) {
+      isDuplicate = true;
+      return;
     }
+  });
+
+  if (!isDuplicate) {
+    const history = document.createElement("li");
+    history.textContent = storedCity;
+    history.addEventListener("click", function () {
+      citySearch.value = storedCity;
+      handleSubmit(new Event("submit"));
+    });
+    document.getElementById("history-list").appendChild(history);
+  }
+
+
+
+  const cards = document.querySelectorAll(".card-body");
+  for (let i = 0; i < 5; i++) {
+    const day = weather.list[i * 8];
+    const date = new Date(day.dt * 1000);
+    const options = { weekday: 'long' };
+    const dayOfWeek = date.toLocaleDateString('en-US', options);
+    const temp = (day.main.temp - 273.15).toFixed(1);
+    const tempInFahrenheit = ((temp * 9 / 5) + 32).toFixed(1);
+    cards[i].querySelector(".card-days").textContent = dayOfWeek;
+    cards[i].querySelector(".card-temps").textContent = `Temperature: ${tempInFahrenheit}°F`;
+    //adding date //
+    cards[i].querySelector(".card-date").textContent = date.toLocaleDateString();
+    cards[i].querySelector(".card-humidity").textContent = `Humidity: ${day.main.humidity}%`;
+    cards[i].querySelector(".card-windSpeed").textContent = `Wind Speed: ${day.wind.speed}m/s`;
+    cards[i].querySelector(".icon img").src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+  }
 }
 
-// local storage
 const storedCity = localStorage.getItem("city");
 if (storedCity) {
-    citySearch.value = storedCity;
-    handleSubmit(new Event("submit"));
+  citySearch.value = storedCity;
+  handleSubmit(new Event("submit"));
 }
 
 document.querySelector("form").addEventListener("submit", handleSubmit);
+
+
+
 
 /*
 const weatherIcon = document.querySelector("#weather-icon");

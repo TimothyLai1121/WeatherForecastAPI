@@ -1,0 +1,224 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+/* font-family: 'Lora', serif; */
+
+:root {
+    --Lora: 'Lora', serif;
+    /* Color Pallete */
+    --vivid: #0d9de3;
+    --capri: #01bfff;
+    --vividsky: #00ccff;
+    --antiflash: #f1f1f1;
+    --weldon: #7f9ba6;
+    --stormcloud: #4e6969;
+
+}
+
+/* ui-bar */
+
+.ui-bar {
+    border-radius: 25px 25px 0px 0px;
+    background-color: var(--antiflash);
+    
+    
+}
+
+.ui-bar h1 {
+    font-size: 35px;
+    text-align: center;
+    margin: auto;
+    font-family: var(--Lora);
+    padding-bottom: 5px;
+}
+
+
+
+
+/* Jumnbotron */
+
+.jumbotron {
+    background-color: var(--vividsky);
+
+}
+
+.jumbotron .display-3 {
+    font-family: var(--Lora);
+}
+
+/* fivedays cards */
+
+body {
+    background-color: var(--weldon);
+}
+
+.fiveDaysForecast {
+    background-color: var(--stormcloud);
+    width: 100%;
+    margin-top: 100px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1);
+
+}
+
+.card {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: var(--stormcloud);
+
+}
+
+.icon img {
+    width: 80px;
+    height: 80px;
+
+}
+
+/* line-break */
+
+
+/* bottom column */
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+
+}
+
+#history-list li {
+    display: inline-block;
+    background-color: var(--antiflash);
+    border-radius: 5px;
+    margin: 3px;
+    cursor: pointer;
+    text-align: center;
+    width: 120px;
+}
+
+#history-list li:hover {
+    background-color: var(--antiflash);
+}
+
+
+
+.form-group {
+    background-color: var(--weldon);
+    padding: 5px;
+    border-radius: 5px;
+    margin: 20px auto;
+    
+}
+
+.inputValue {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.btn-primary {
+    background-color: var(--weldon);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    float: right;
+}
+
+.btn-primary:hover {
+    background-color: var(--vivid);
+}
+
+.cardCurrent {
+    background-color: var(--antiflash);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .cardCurrent:hover {
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .cityName {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .icon-current {
+    margin: 20px 0;
+  }
+
+  #weather-icon-current {
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    background-color: var(--stormcloud);
+
+
+  }
+
+  .card-temps-current,
+  .card-description,
+  .card-humidity,
+  .card-windSpeed {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    /* styles for small screens */
+    .ui-bar h1 {
+      font-size: 25px;
+    }
+  
+    .fiveDaysForecast {
+      margin-top: 50px;
+    }
+  
+    .card {
+      width: 90%;
+      margin: 10px auto;
+    }
+  
+    #history-list li {
+      width: 80px;
+      font-size: 14px;
+    }
+  
+    .form-group {
+      width: 90%;
+      margin: 10px auto;
+    }
+  
+    .inputValue {
+      font-size: 14px;
+    }
+  }

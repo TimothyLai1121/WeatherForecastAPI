@@ -66,6 +66,9 @@ async function handleSubmit(e) {
     weatherIcon.src = `http://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png`;
     // icons only showing current //
     // reworking on five days forecast to show beside awesome fonts icons //
+    
+
+
     // fivedaysforecast
     const cards = document.querySelectorAll(".card-body");
     for (let i = 0; i < 5; i++) {

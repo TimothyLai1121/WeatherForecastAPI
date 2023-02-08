@@ -24,94 +24,96 @@
         <hr class="my-4">
         <p>GitHub</p>
     </div>
-<div class="container fiveDaysForecast">
-    <!-- First Column -->
-    <div class="row futureForcast">
-        
-        <!-- changing to col instead of col-md-2 fix my problem -->
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-days">Monday</h5>
-                    <i class="fas fa-cloud"></i>
-                    <p class="card-temps">Temperature: 32°F</p>
+    <div class="container fiveDaysForecast">
+        <!-- First Column -->
+        <div class="row futureForcast">
+
+            <!-- changing to col instead of col-md-2 fix my problem -->
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-days">Monday</h5>
+                        <div class="icon">
+                        <img id="weather-icon" src="">
+                        </div>
+                        <p class="card-temps">Temperature: 32°F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-days">Tuesday</h5>
+                        <i class="fas fa-cloud"></i>
+                        <p class="card-temps">Temperature: 32°F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-days">Wednesday</h5>
+                        <i class="fas fa-cloud"></i>
+                        <p class="card-temps">Temperature: 32°F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-days">Thursday</h5>
+                        <i class="fas fa-cloud"></i>
+                        <p class="card-temps">Temperature: 32°F</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-days">Friday</h5>
+                        <i class="fas fa-cloud"></i>
+                        <p class="card-temps">Temperature: 32°F</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-days">Tuesday</h5>
-                    <i class="fas fa-cloud"></i>
-                    <p class="card-temps">Temperature: 32°F</p>
+        <!-- Second Column -->
+
+        <div class="container forecastToday">
+            <div class="row">
+                <div class="col-md-4">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="inputValue" id="citySearch" placeholder="City Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+                <div class="col-md-8 ">
+                    <div class="cardCurrent">
+                        <div class="card-body">
+                            <h5 class="cityName">Atlanta</h5>
+                            <i class="fas fa-cloud"></i>
+                            <!-- adding icons to see if I can change according to weather -->
+                            <p class="card-temps-current" id="temperature">Temperature: 20°F</p>
+                            <p class="card-description" id="description">Status</p>
+                            <!-- Kelvin subtracting 273.15 to calculate Celsius -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-days">Wednesday</h5>
-                    <i class="fas fa-cloud"></i>
-                    <p class="card-temps">Temperature: 32°F</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-days">Thursday</h5>
-                    <i class="fas fa-cloud"></i>
-                    <p class="card-temps">Temperature: 32°F</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-days">Friday</h5>
-                    <i class="fas fa-cloud"></i>
-                    <p class="card-temps">Temperature: 32°F</p>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Second Column -->
-
-    <div class="container forecastToday">
-        <div class="row">
-          <div class="col-md-4">
-            <form>
-              <div class="form-group">
-                <input type="text" class="inputValue" id="citySearch" placeholder="City Name">
-              </div>
-              <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-          </div>
-          <div class="col-md-8 ">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="cityName">Atlanta</h5>
-                <i class="fas fa-cloud"></i>
-                <!-- adding icons to see if I can change according to weather -->
-                <p class="card-temps-current" id="temperature">Temperature: 20°F</p>
-                <p class="card-description" id="description">Status</p>
-                <!-- Kelvin subtracting 273.15 to calculate Celsius -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-    
-
-</div>
-
-<script src="./assets/scripts/script.js"></script>
+    <script src="./assets/scripts/fahrenheit.js"></script>
 </body>
 
 </html>

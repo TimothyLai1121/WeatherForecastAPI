@@ -1,5 +1,6 @@
 ![banner](./assets/imgs/Another_Weather_Station.png)
 
+# Weather Station API ![shield1](https://img.shields.io/github/repo-size/TimothyLai1121/WeatherForecastAPI)
 
 
 

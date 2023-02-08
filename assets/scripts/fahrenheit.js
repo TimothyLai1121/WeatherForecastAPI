@@ -69,7 +69,7 @@ async function handleSubmit(e) {
     // fivedaysforecast
     const cards = document.querySelectorAll(".card-body");
     for (let i = 0; i < 5; i++) {
-        const day = weather.list[i * 8]; // 8 is the interval to get the next day
+        const day = weather.list[i * 8]; // 8 interval for each day
         const date = new Date(day.dt * 1000);
         const options = { weekday: 'long' };
         const dayOfWeek = date.toLocaleDateString('en-US', options);
@@ -77,6 +77,10 @@ async function handleSubmit(e) {
         const tempInFahrenheit = ((temp * 9 / 5) + 32).toFixed(1);
         cards[i].querySelector(".card-days").textContent = dayOfWeek;
         cards[i].querySelector(".card-temps").textContent = `Temperature: ${tempInFahrenheit}°F`;
+        // adding .card-humidity
+        cards[i].querySelector(".card-humidity").textContent = `Humidity: ${day.main.humidity}%`;
+        cards[i].querySelector(".card-windSpeed").textContent = `Wind Speed: ${day.wind.speed}m/s`;
+        cards[i].querySelector("#weather-icon").src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     }
 }
 

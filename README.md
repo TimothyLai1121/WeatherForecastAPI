@@ -6,7 +6,7 @@ https://timothylai1121.github.io/WeatherForecastAPI/
 
 # Snippet
 
-![preview](./assets/imgs/WeatherApiForeCasting.gif)
+![gifs](./assets/imgs/previews.gif)
 
 ## References
 
